@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Media Gallery | Sarah Agni</title>
+    <meta name="description" content="Browse through the visual gallery of Sarah Agni's high-end dreadlocks installations, live fire dance flow performances, and holistic retreat workshops.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Header / Navigation Bar -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-accent">SARAH</span> AGNI
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="dreadlocks.html">Dreadlocks</a></li>
+                    <li><a href="healing.html">Healing</a></li>
+                    <li><a href="breathwork.html">Breathwork</a></li>
+                    <li><a href="fire-dance.html">Fire Dance</a></li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="contact.html" class="nav-cta-btn">Connect</a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <nav class="mobile-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="dreadlocks.html">Dreadlocks Services</a></li>
+            <li><a href="healing.html">Healing & Hypnotherapy</a></li>
+            <li><a href="breathwork.html">Rebirth Breathwork</a></li>
+            <li><a href="fire-dance.html">Fire Dance Training</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="contact.html" class="mobile-cta-btn">Book a Session</a></li>
+        </ul>
+    </nav>
+
+<!-- Gallery Header -->
+<section class="section-padding" style="padding-top: 150px; background: linear-gradient(180deg, #121212 0%, var(--color-bg-dark) 100%);">
+    <div class="container">
+        <h1 class="section-title reveal-in">The Media Gallery</h1>
+        <p class="section-subtitle reveal-in">Visual records of transformation, fire, and quiet space</p>
+        
+        <!-- Category Filter Buttons -->
+        <div class="gallery-filters reveal-in" style="transition-delay: 0.1s;">
+            <button class="filter-btn active" data-filter="all">All Work</button>
+            <button class="filter-btn" data-filter="dreadlocks">Dreadlocks</button>
+            <button class="filter-btn" data-filter="firedance">Fire Dance</button>
+            <button class="filter-btn" data-filter="healing">Healing Sessions</button>
+            <button class="filter-btn" data-filter="workshops">Workshops</button>
+            <button class="filter-btn" data-filter="events">Events</button>
+        </div>
+        
+        <!-- Gallery Grid -->
+        <div class="gallery-grid reveal-in" style="transition-delay: 0.2s; margin-top: 20px;">
+            <div class="gallery-item" data-category="dreadlocks" data-src="assets/images/hero_dreadlocks.png" data-title="Crochet Installation">
+                <img src="assets/images/hero_dreadlocks.png" alt="Crochet Installation" loading="lazy">
+                <div class="gallery-overlay">
+                    <h4>Crochet Installation</h4>
+                    <span>dreadlocks</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="firedance" data-src="assets/images/firedance_performance.png" data-title="Ember POI Flow">
+                <img src="assets/images/firedance_performance.png" alt="Ember POI Flow" loading="lazy">
+                <div class="gallery-overlay">
+                    <h4>Ember POI Flow</h4>
+                    <span>firedance</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="healing" data-src="assets/images/breathwork_healing.png" data-title="Trauma Release Room">
+                <img src="assets/images/breathwork_healing.png" alt="Trauma Release Room" loading="lazy">
+                <div class="gallery-overlay">
+                    <h4>Trauma Release Room</h4>
+                    <span>healing</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="events" data-src="assets/images/sarah_profile.png" data-title="Brand Story Portrait">
+                <img src="assets/images/sarah_profile.png" alt="Brand Story Portrait" loading="lazy">
+                <div class="gallery-overlay">
+                    <h4>Brand Story Portrait</h4>
+                    <span>events</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="dreadlocks" data-src="assets/images/hero_dreadlocks.png" data-title="Wool Extension Installs">
+                <img src="assets/images/hero_dreadlocks.png" alt="Wool Extension Installs" loading="lazy">
+                <div class="gallery-overlay">
+                    <h4>Wool Extension Installs</h4>
+                    <span>dreadlocks</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="workshops" data-src="assets/images/breathwork_healing.png" data-title="Somatic Healing Circle">
+                <img src="assets/images/breathwork_healing.png" alt="Somatic Healing Circle" loading="lazy">
+                <div class="gallery-overlay">
+                    <h4>Somatic Healing Circle</h4>
+                    <span>workshops</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="firedance" data-src="assets/images/firedance_performance.png" data-title="Double Staff Fire Spin">
+                <img src="assets/images/firedance_performance.png" alt="Double Staff Fire Spin" loading="lazy">
+                <div class="gallery-overlay">
+                    <h4>Double Staff Fire Spin</h4>
+                    <span>firedance</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="workshops" data-src="assets/images/sarah_profile.png" data-title="Primal Breath Session">
+                <img src="assets/images/sarah_profile.png" alt="Primal Breath Session" loading="lazy">
+                <div class="gallery-overlay">
+                    <h4>Primal Breath Session</h4>
+                    <span>workshops</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Premium Footer Section -->
+    <footer class="main-footer">
+        <div class="footer-top-glow"></div>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo footer-logo"><span class="logo-accent">SARAH</span> AGNI</a>
+                <p class="brand-desc">
+                    Transforming physical appearance through master-level dreadlocks artistry, while facilitating deep energetic and somatic healing retreats worldwide.
+                </p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/sarah_agni" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/sarah_agni" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/sarah_agni" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://wa.me/919999999999" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Sarah</a></li>
+                    <li><a href="gallery.html">Media Gallery</a></li>
+                    <li><a href="contact.html">Contact & Location</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="dreadlocks.html">Dreadlock Artistry</a></li>
+                    <li><a href="healing.html">Hypnotherapy & Healing</a></li>
+                    <li><a href="breathwork.html">Rebirth Breathwork</a></li>
+                    <li><a href="fire-dance.html">Fire Dance Training</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-legal">
+                <h3>Professional Disclaimer</h3>
+                <p class="disclaimer-text">
+                    Hypnotherapy, breathwork, and energetic healing are complementary, holistic modalities designed to support emotional growth and self-regulation. These services do not constitute medical, psychological, or psychiatric advice, diagnostics, or clinical treatment. Always consult a licensed healthcare provider for medical conditions.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sarah Agni. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <a href="https://wa.me/919999999999?text=Hello%20Sarah,%20I%20would%20like%20to%20book%20a%20session." class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip-text">Book on WhatsApp</span>
+    </a>
+    
+    <button class="back-to-top" id="backToTopBtn" aria-label="Scroll Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

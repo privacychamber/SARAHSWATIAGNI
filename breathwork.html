@@ -1,16 +1,70 @@
-<?php
-/**
- * Sarah Agni Website - Rebirth Breathwork
- */
-$page_title = "Rebirth Breathwork Sessions & Ceremonies";
-$page_description = "Experience Rebirth Breathwork - a conscious circular breathing method that promotes somatic release, deep relaxation, and mental clarity under professional guidance.";
-require_once 'includes/header.php';
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebirth Breathwork Sessions & Ceremonies | Sarah Agni</title>
+    <meta name="description" content="Experience Rebirth Breathwork - a conscious circular breathing method that promotes somatic release, deep relaxation, and mental clarity under professional guidance.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Header / Navigation Bar -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-accent">SARAH</span> AGNI
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="dreadlocks.html">Dreadlocks</a></li>
+                    <li><a href="healing.html">Healing</a></li>
+                    <li><a href="breathwork.html" class="active">Breathwork</a></li>
+                    <li><a href="fire-dance.html">Fire Dance</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html" class="nav-cta-btn">Connect</a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <nav class="mobile-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="dreadlocks.html">Dreadlocks Services</a></li>
+            <li><a href="healing.html">Healing & Hypnotherapy</a></li>
+            <li><a href="breathwork.html" class="active">Rebirth Breathwork</a></li>
+            <li><a href="fire-dance.html">Fire Dance Training</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html" class="mobile-cta-btn">Book a Session</a></li>
+        </ul>
+    </nav>
 
 <!-- Breathwork Hero Section -->
 <section class="section-padding" style="padding-top: 150px; background: linear-gradient(180deg, #121212 0%, var(--color-bg-dark) 100%);">
     <div class="container">
-        <!-- Safety Alert -->
         <div style="background-color: rgba(182, 124, 61, 0.05); border: 1px solid rgba(182, 124, 61, 0.2); padding: 15px 25px; margin-bottom: 40px; text-align: center; border-radius: 4px;">
             <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-gold); margin: 0;">
                 <i class="fas fa-exclamation-triangle"></i> Important Contraindications: Breathwork is not suitable for individuals with cardiovascular disease, severe hypertension, glaucoma, epilepsy, or active pregnancy.
@@ -28,7 +82,7 @@ require_once 'includes/header.php';
                     "Breath is the bridge between the conscious and subconscious. By altering the pattern of our breathing, we change our internal biochemistry and release deep stress."
                 </p>
                 <p>
-                    <?php echo sanitize_input(get_content('breathwork_intro_text', 'Rebirth Breathwork is a circular breathing method that facilitates somatic release, emotional integration, and altered states of consciousness, allowing deep-seated blockages to dissolve naturally.')); ?>
+                    Rebirth Breathwork is a circular breathing method that facilitates somatic release, emotional integration, and altered states of consciousness, allowing deep-seated blockages to dissolve naturally.
                 </p>
                 <p>
                     Unlike standard meditative breathing, Rebirth Breathwork utilizes a continuous, circular pattern (no pauses between inhalation and exhalation). This floods the body with oxygen and temporarily lowers carbon dioxide levels, shifting the brain into a state of active neuro-integration. 
@@ -37,7 +91,7 @@ require_once 'includes/header.php';
                     This process often activates the parasympathetic nervous system, allowing deep emotional blocks, physical tension, and old stress memories to surface and dissolve in a safe, controlled setting.
                 </p>
                 <div style="margin-top: 2rem;">
-                    <a href="contact.php?interest=breathwork" class="btn btn-primary">Book Breathwork Session</a>
+                    <a href="contact.html" class="btn btn-primary">Book Breathwork Session</a>
                 </div>
             </div>
             
@@ -55,7 +109,6 @@ require_once 'includes/header.php';
         <p class="section-subtitle reveal-in">Backed by somatic and respiratory mechanics</p>
         
         <div class="services-grid">
-            <!-- Benefit 1 -->
             <div class="service-card reveal-in">
                 <span class="service-icon"><i class="fas fa-heartbeat"></i></span>
                 <h3>Nervous System Regulation</h3>
@@ -64,7 +117,6 @@ require_once 'includes/header.php';
                 </p>
             </div>
             
-            <!-- Benefit 2 -->
             <div class="service-card reveal-in" style="transition-delay: 0.05s;">
                 <span class="service-icon"><i class="fas fa-spa"></i></span>
                 <h3>Somatic Stress Release</h3>
@@ -73,7 +125,6 @@ require_once 'includes/header.php';
                 </p>
             </div>
             
-            <!-- Benefit 3 -->
             <div class="service-card reveal-in" style="transition-delay: 0.1s;">
                 <span class="service-icon"><i class="fas fa-lightbulb"></i></span>
                 <h3>Mental Clarity & Focus</h3>
@@ -92,7 +143,6 @@ require_once 'includes/header.php';
         <p class="section-subtitle reveal-in">A three-phase journey of release</p>
         
         <div class="timeline">
-            <!-- Phase 1 -->
             <div class="timeline-item timeline-left reveal-in">
                 <div class="timeline-badge">01</div>
                 <div class="timeline-content">
@@ -101,7 +151,6 @@ require_once 'includes/header.php';
                 </div>
             </div>
             
-            <!-- Phase 2 -->
             <div class="timeline-item timeline-right reveal-in" style="transition-delay: 0.1s;">
                 <div class="timeline-badge">02</div>
                 <div class="timeline-content">
@@ -110,7 +159,6 @@ require_once 'includes/header.php';
                 </div>
             </div>
             
-            <!-- Phase 3 -->
             <div class="timeline-item timeline-left reveal-in" style="transition-delay: 0.2s;">
                 <div class="timeline-badge">03</div>
                 <div class="timeline-content">
@@ -122,7 +170,7 @@ require_once 'includes/header.php';
     </div>
 </section>
 
-<!-- Breathwork FAQs -->
+<!-- FAQs -->
 <section class="section-padding" style="background-color: #101010; border-top: 1px solid rgba(182, 124, 61, 0.1);">
     <div class="container">
         <h2 class="section-title reveal-in">Breathwork FAQs</h2>
@@ -169,4 +217,66 @@ require_once 'includes/header.php';
     </div>
 </section>
 
-<?php require_once 'includes/footer.php'; ?>
+    <!-- Premium Footer Section -->
+    <footer class="main-footer">
+        <div class="footer-top-glow"></div>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo footer-logo"><span class="logo-accent">SARAH</span> AGNI</a>
+                <p class="brand-desc">
+                    Transforming physical appearance through master-level dreadlocks artistry, while facilitating deep energetic and somatic healing retreats worldwide.
+                </p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/sarah_agni" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/sarah_agni" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/sarah_agni" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://wa.me/919999999999" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Sarah</a></li>
+                    <li><a href="gallery.html">Media Gallery</a></li>
+                    <li><a href="contact.html">Contact & Location</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="dreadlocks.html">Dreadlock Artistry</a></li>
+                    <li><a href="healing.html">Hypnotherapy & Healing</a></li>
+                    <li><a href="breathwork.html">Rebirth Breathwork</a></li>
+                    <li><a href="fire-dance.html">Fire Dance Training</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-legal">
+                <h3>Professional Disclaimer</h3>
+                <p class="disclaimer-text">
+                    Hypnotherapy, breathwork, and energetic healing are complementary, holistic modalities designed to support emotional growth and self-regulation. These services do not constitute medical, psychological, or psychiatric advice, diagnostics, or clinical treatment. Always consult a licensed healthcare provider for medical conditions.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sarah Agni. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <a href="https://wa.me/919999999999?text=Hello%20Sarah,%20I%20would%20like%20to%20book%20a%20session." class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip-text">Book on WhatsApp</span>
+    </a>
+    
+    <button class="back-to-top" id="backToTopBtn" aria-label="Scroll Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

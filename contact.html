@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect & Book a Session | Sarah Agni</title>
+    <meta name="description" content="Get in touch with Sarah Agni for dreadlocks sculpting, hypnotherapy sessions, rebirth breathwork workshops, or event performances. Location details & contact form.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Header / Navigation Bar -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-accent">SARAH</span> AGNI
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="dreadlocks.html">Dreadlocks</a></li>
+                    <li><a href="healing.html">Healing</a></li>
+                    <li><a href="breathwork.html">Breathwork</a></li>
+                    <li><a href="fire-dance.html">Fire Dance</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html" class="active nav-cta-btn">Connect</a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <nav class="mobile-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="dreadlocks.html">Dreadlocks Services</a></li>
+            <li><a href="healing.html">Healing & Hypnotherapy</a></li>
+            <li><a href="breathwork.html">Rebirth Breathwork</a></li>
+            <li><a href="fire-dance.html">Fire Dance Training</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html" class="mobile-cta-btn">Book a Session</a></li>
+        </ul>
+    </nav>
+
+<!-- Contact Header -->
+<section class="section-padding" style="padding-top: 150px; background: linear-gradient(180deg, #121212 0%, var(--color-bg-dark) 100%);">
+    <div class="container">
+        <h1 class="section-title reveal-in">Connect with Sarah</h1>
+        <p class="section-subtitle reveal-in">Schedule a consultation or book your transformational session</p>
+        
+        <div class="contact-grid reveal-in" style="margin-top: 40px;">
+            <!-- Left Panel: Info and socials -->
+            <div class="contact-info-panel">
+                <h3>Let's Collaborate</h3>
+                <p>
+                    Whether you are starting a new dreadlocks journey, looking for deep somatic release, or booking a fire flow performance, please reach out. Sarah splits her time between Goa (India), Bali (Indonesia), and global retreat workshops.
+                </p>
+                
+                <div class="contact-details">
+                    <div class="contact-detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Arambol, Goa, India (Seasonal Retreat Studio)</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>connect@sarahagni.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>Direct WhatsApp</h4>
+                            <p>+91 99999 99999</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4 style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.15em; color: var(--color-gold); margin-bottom: 1rem;">Social Media</h4>
+                <div class="social-icons" style="margin-bottom: 2rem;">
+                    <a href="https://www.instagram.com/sarah_agni" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/sarah_agni" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/sarah_agni" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+                <a href="https://wa.me/919999999999?text=Hello%20Sarah,%20I'd%20like%20to%20inquire%20about%20a%20session." class="btn btn-whatsapp" target="_blank" rel="noopener" style="width: 100%; text-align: center;">
+                    <i class="fab fa-whatsapp"></i> Quick Book on WhatsApp
+                </a>
+            </div>
+            
+            <!-- Right Panel: Form -->
+            <div class="contact-form-container">
+                <h3 style="margin-bottom: 20px; font-family: var(--font-heading); font-size: 1.8rem; color: var(--color-gold);">Send a Message</h3>
+                
+                <div id="static-alert" class="form-alert" style="display:none;"></div>
+                
+                <form id="static-contact-form" autocomplete="on">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="e.g. John Doe" required autocomplete="name">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="e.g. john@example.com" required autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="e.g. +91 98765 43210" autocomplete="tel">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service_interest">Area of Interest</label>
+                        <select id="service_interest" name="service_interest" class="form-control">
+                            <option value="dreadlocks_new">New Dreadlocks Installation (Primary Focus)</option>
+                            <option value="dreadlocks_maint">Dreadlocks Maintenance / Repair</option>
+                            <option value="healing">Hypnotherapy & Healing Session</option>
+                            <option value="breathwork">Rebirth Breathwork Seminar</option>
+                            <option value="firedance">Fire Dance Training / Workshop</option>
+                            <option value="other">General / Collaborative Booking</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+                        <textarea id="message" name="message" class="form-control" rows="5" placeholder="Share details about your hair length, current locks, or specific healing goals..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquire</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="map-container reveal-in" style="transition-delay: 0.1s;">
+            <iframe 
+                title="Sarah Agni Wellness Studio Map Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3840.4072236979203!2d73.70295191484196!3d15.698293989110486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbf797af5555555%3A0x6bba888888888888!2sArambol%20Beach!5e0!3m2!1sen!2sin!4v1655000000000!5m2!1sen!2sin" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+    <!-- Premium Footer Section -->
+    <footer class="main-footer">
+        <div class="footer-top-glow"></div>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo footer-logo"><span class="logo-accent">SARAH</span> AGNI</a>
+                <p class="brand-desc">
+                    Transforming physical appearance through master-level dreadlocks artistry, while facilitating deep energetic and somatic healing retreats worldwide.
+                </p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/sarah_agni" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/sarah_agni" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/sarah_agni" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://wa.me/919999999999" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Sarah</a></li>
+                    <li><a href="gallery.html">Media Gallery</a></li>
+                    <li><a href="contact.html">Contact & Location</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="dreadlocks.html">Dreadlock Artistry</a></li>
+                    <li><a href="healing.html">Hypnotherapy & Healing</a></li>
+                    <li><a href="breathwork.html">Rebirth Breathwork</a></li>
+                    <li><a href="fire-dance.html">Fire Dance Training</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-legal">
+                <h3>Professional Disclaimer</h3>
+                <p class="disclaimer-text">
+                    Hypnotherapy, breathwork, and energetic healing are complementary, holistic modalities designed to support emotional growth and self-regulation. These services do not constitute medical, psychological, or psychiatric advice, diagnostics, or clinical treatment. Always consult a licensed healthcare provider for medical conditions.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sarah Agni. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <a href="https://wa.me/919999999999?text=Hello%20Sarah,%20I%20would%20like%20to%20book%20a%20session." class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip-text">Book on WhatsApp</span>
+    </a>
+    
+    <button class="back-to-top" id="backToTopBtn" aria-label="Scroll Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Script to catch static form submit -->
+    <script>
+        document.getElementById('static-contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const alertBox = document.getElementById('static-alert');
+            alertBox.style.display = 'block';
+            alertBox.className = 'form-alert form-alert-success';
+            alertBox.innerHTML = '<strong>Static Preview Mode:</strong> Your message was processed successfully (in simulated mode). For real inquiries, please click the "Quick Book on WhatsApp" button to connect directly with Sarah!';
+            this.reset();
+            window.scrollTo({ top: alertBox.offsetTop - 100, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

@@ -1,11 +1,66 @@
-<?php
-/**
- * Sarah Agni Website - About Sarah
- */
-$page_title = "The Story & Soul of Sarah Agni";
-$page_description = "Learn more about Sarah Agni, an acclaimed dreadlocks artist, certified hypnotherapist, and fire dancer with 10+ years of facilitating transformational healing.";
-require_once 'includes/header.php';
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Story & Soul of Sarah Agni | Sarah Agni</title>
+    <meta name="description" content="Learn more about Sarah Agni, an acclaimed dreadlocks artist, certified hypnotherapist, and fire dancer with 10+ years of facilitating transformational healing.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Header / Navigation Bar -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-accent">SARAH</span> AGNI
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="dreadlocks.html">Dreadlocks</a></li>
+                    <li><a href="healing.html">Healing</a></li>
+                    <li><a href="breathwork.html">Breathwork</a></li>
+                    <li><a href="fire-dance.html">Fire Dance</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html" class="nav-cta-btn">Connect</a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <nav class="mobile-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="dreadlocks.html">Dreadlocks Services</a></li>
+            <li><a href="healing.html">Healing & Hypnotherapy</a></li>
+            <li><a href="breathwork.html">Rebirth Breathwork</a></li>
+            <li><a href="fire-dance.html">Fire Dance Training</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html" class="mobile-cta-btn">Book a Session</a></li>
+        </ul>
+    </nav>
 
 <!-- About Hero Section -->
 <section class="section-padding" style="padding-top: 150px; background: linear-gradient(180deg, #121212 0%, var(--color-bg-dark) 100%);">
@@ -15,7 +70,6 @@ require_once 'includes/header.php';
         
         <div class="split-layout" style="margin-top: 40px;">
             <div class="split-image-container reveal-in">
-                <!-- Profile Image -->
                 <img src="assets/images/sarah_profile.png" alt="Sarah Agni Portrait" class="split-image">
             </div>
             
@@ -40,12 +94,10 @@ require_once 'includes/header.php';
 <section class="section-padding" style="background-color: #0d0d0d; border-top: 1px solid rgba(182, 124, 61, 0.1); border-bottom: 1px solid rgba(182, 124, 61, 0.1);">
     <div class="container">
         <div class="split-layout" style="direction: rtl;">
-            <!-- Left on desktop (standard direction rtl flips visual layout) -->
             <div class="split-image-container reveal-in" style="direction: ltr;">
                 <img src="assets/images/breathwork_healing.png" alt="Healing and Breathwork Setup" class="split-image">
             </div>
             
-            <!-- Right on desktop -->
             <div class="split-text reveal-in" style="direction: ltr; transition-delay: 0.15s;">
                 <span class="text-gold italic-serif" style="font-size: 1.4rem; display: block; margin-bottom: 0.5rem;">10+ Years of Healing Guidance</span>
                 <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem;">Somatic Integration & Energy Release</h2>
@@ -94,7 +146,7 @@ require_once 'includes/header.php';
                 </blockquote>
                 
                 <div style="margin-top: 2rem;">
-                    <a href="fire-dance.php" class="btn btn-outline">Explore Classes & Performances</a>
+                    <a href="fire-dance.html" class="btn btn-outline">Explore Classes & Performances</a>
                 </div>
             </div>
         </div>
@@ -109,10 +161,72 @@ require_once 'includes/header.php';
             Whether you want a physical hair transformation or an emotional breakthrough, Sarah is here to guide you step-by-step.
         </p>
         <div class="btn-group">
-            <a href="contact.php" class="btn btn-primary">Schedule a Consultation</a>
+            <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
             <a href="https://wa.me/919999999999" class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
         </div>
     </div>
 </section>
 
-<?php require_once 'includes/footer.php'; ?>
+    <!-- Premium Footer Section -->
+    <footer class="main-footer">
+        <div class="footer-top-glow"></div>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo footer-logo"><span class="logo-accent">SARAH</span> AGNI</a>
+                <p class="brand-desc">
+                    Transforming physical appearance through master-level dreadlocks artistry, while facilitating deep energetic and somatic healing retreats worldwide.
+                </p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/sarah_agni" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/sarah_agni" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/sarah_agni" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://wa.me/919999999999" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Sarah</a></li>
+                    <li><a href="gallery.html">Media Gallery</a></li>
+                    <li><a href="contact.html">Contact & Location</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="dreadlocks.html">Dreadlock Artistry</a></li>
+                    <li><a href="healing.html">Hypnotherapy & Healing</a></li>
+                    <li><a href="breathwork.html">Rebirth Breathwork</a></li>
+                    <li><a href="fire-dance.html">Fire Dance Training</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-legal">
+                <h3>Professional Disclaimer</h3>
+                <p class="disclaimer-text">
+                    Hypnotherapy, breathwork, and energetic healing are complementary, holistic modalities designed to support emotional growth and self-regulation. These services do not constitute medical, psychological, or psychiatric advice, diagnostics, or clinical treatment. Always consult a licensed healthcare provider for medical conditions.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sarah Agni. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <a href="https://wa.me/919999999999?text=Hello%20Sarah,%20I%20would%20like%20to%20book%20a%20session." class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip-text">Book on WhatsApp</span>
+    </a>
+    
+    <button class="back-to-top" id="backToTopBtn" aria-label="Scroll Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
