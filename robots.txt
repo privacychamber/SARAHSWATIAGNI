@@ -1,0 +1,8 @@
+# Robots.txt for Sarah Agni Brand Website
+# Optimized for SEO and Admin Panel Security
+
+User-agent: *
+Disallow: /admin/
+Disallow: /uploads/ (Optional: keep private or comment out to allow image searches)
+
+Sitemap: http://sarahagni.com/sitemap.xml

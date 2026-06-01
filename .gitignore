@@ -1,0 +1,7 @@
+# OS temp files
+.DS_Store
+Thumbs.db
+
+# User Uploads
+uploads/*
+!uploads/.gitkeep
