@@ -5,3 +5,7 @@ Thumbs.db
 # User Uploads
 uploads/*
 !uploads/.gitkeep
+
+# Node & Database
+node_modules/
+database.sqlite
