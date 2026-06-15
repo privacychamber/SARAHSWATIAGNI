@@ -53,7 +53,7 @@ const initDb = () => {
         const stmt = db.prepare("INSERT INTO content (key, page, value, type) VALUES (?, ?, ?, ?)");
         
         // Home Page (index)
-        stmt.run('home_hero_subtitle', 'index', 'Sarah Agni', 'text');
+        stmt.run('home_hero_subtitle', 'index', 'Sarahswati Agni', 'text');
         stmt.run('home_hero_title', 'index', 'Transform Your Hair. Heal Your Energy. Ignite Your Spirit.', 'text');
         stmt.run('home_hero_desc', 'index', 'Professional Dreadlocks Artist, Hypnotherapist, Breathwork Guide & Fire Dance Instructor.', 'textarea');
         stmt.run('home_intro_subtitle', 'index', 'The Signature Artistry', 'text');
@@ -66,7 +66,7 @@ const initDb = () => {
         stmt.run('about_intro_subtitle', 'about', 'A Vision of Transformation', 'text');
         stmt.run('about_intro_title', 'about', 'Merging Artistry with Inner Alignment', 'text');
         stmt.run('about_intro_lead', 'about', '"I believe that our outer form and our inner state are deeply interconnected. When we work on our crown, we are locking in intentions. When we breathe, we are releasing the past."', 'textarea');
-        stmt.run('about_story_1', 'about', 'For over a decade, Sarah Agni has been navigating the intersection of physical styling and energetic alignment. Rooted in India and drawing inspiration from global tribal cultures, Bali wellness practices, and the transformational energy of Burning Man, she has cultivated a unique personal brand.', 'textarea');
+        stmt.run('about_story_1', 'about', 'For over a decade, Sarahswati Agni has been navigating the intersection of physical styling and energetic alignment. Rooted in India and drawing inspiration from global tribal cultures, Bali wellness practices, and the transformational energy of Burning Man, she has cultivated a unique personal brand.', 'textarea');
         stmt.run('about_story_2', 'about', 'Her journey began with a deep appreciation for dreadlocks as natural sculptures. Over the years, this visual craft evolved. She realized that sitting for hours in a dreadlock chair is a deeply intimate, meditative process. Clients began sharing stories, crying, laughing, and releasing. This realization prompted her to pursue clinical hypnotherapy, breathwork training, and somatic release practices to support her clients holistically.', 'textarea');
 
         stmt.finalize();
@@ -76,3 +76,4 @@ const initDb = () => {
 initDb();
 
 module.exports = db;
+

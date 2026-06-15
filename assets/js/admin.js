@@ -1,6 +1,6 @@
 /**
  * Admin Panel Helpers
- * Sarah Agni Brand Website
+ * Sarahswati Agni Brand Website
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -59,3 +59,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+

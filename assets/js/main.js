@@ -1,6 +1,6 @@
 /**
  * Main Interactive Website Engine
- * Sarah Agni Personal Brand Website
+ * Sarahswati Agni Personal Brand Website
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -415,3 +415,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
