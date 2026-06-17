@@ -4,9 +4,12 @@ const path = require('path');
 const db = require('./database');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const { put } = require('@vercel/blob');
 
 const app = express();
 const JWT_SECRET = process.env.JWT_SECRET || 'supersecretkey_sarahagni';
+const upload = multer({ storage: multer.memoryStorage() });
 
 app.use(cors());
 app.use(express.json());
@@ -56,7 +59,23 @@ app.get('/api/init', async (req, res) => {
             ['home_hero_desc', 'index', 'Professional Dreadlocks Artist, Hypnotherapist, Breathwork Guide & Fire Dance Instructor.', 'textarea'],
             ['home_intro_subtitle', 'index', 'The Signature Artistry', 'text'],
             ['home_intro_title', 'index', 'Master Dreadlock Artist & Repair Specialist', 'text'],
-            ['home_intro_lead', 'index', '"Dreadlocks are not just a hairstyle; they are a crown of strength, patience, and identity. Each lock is sculpted with intention, precision, and respect for your hair\'s unique pattern."', 'textarea']
+            ['home_hero_lead', 'index', '"Dreadlocks are not just a hairstyle; they are a crown of strength, patience, and identity. Each lock is sculpted with intention, precision, and respect for your hair\'s unique pattern."', 'textarea'],
+            ['home_hero_image', 'index', '/assets/images/hero_dreadlocks.png', 'image'],
+            ['home_split_image', 'index', '/assets/images/sarah_profile.png', 'image'],
+            
+            ['about_hero_title', 'about', 'The Woman Behind the Craft', 'text'],
+            ['about_hero_subtitle', 'about', 'Artist, Healer, Guide, Spirit', 'text'],
+            ['about_intro_subtitle', 'about', 'A Vision of Transformation', 'text'],
+            ['about_intro_title', 'about', 'Merging Artistry with Inner Alignment', 'text'],
+            ['about_intro_lead', 'about', '"I believe that our outer form and our inner state are deeply interconnected. When we work on our crown, we are locking in intentions. When we breathe, we are releasing the past."', 'textarea'],
+            ['about_hero_image', 'about', '/assets/img/about-hero.jpg', 'image'],
+            
+            ['gallery_title', 'gallery', 'Portfolio & Artistry', 'text'],
+            ['gallery_subtitle', 'gallery', 'A collection of transformations', 'text'],
+
+            ['contact_title', 'contact', 'Connect with Sarah', 'text'],
+            ['contact_subtitle', 'contact', 'Book your transformation', 'text'],
+            ['contact_email', 'contact', 'booking@sarahagni.com', 'text']
         ];
 
         for (const item of defaultContent) {
@@ -153,6 +172,16 @@ app.post('/api/admin/content', authenticateToken, async (req, res) => {
     try {
         await db.query("INSERT INTO content (key, value) VALUES ($1, $2) ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value", [key, value]);
         res.json({ success: true, key, value });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+app.post('/api/upload', authenticateToken, upload.single('image'), async (req, res) => {
+    try {
+        if (!req.file) return res.status(400).json({ error: "No image provided" });
+        const blob = await put(req.file.originalname, req.file.buffer, { access: 'public' });
+        res.json({ url: blob.url });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

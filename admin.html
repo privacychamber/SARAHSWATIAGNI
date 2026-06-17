@@ -203,16 +203,38 @@
                 label.textContent = item.key.replace(page + '_', '').replace(/_/g, ' ');
                 div.appendChild(label);
                 
-                let input;
                 if (item.type === 'textarea') {
-                    input = document.createElement('textarea');
+                    const input = document.createElement('textarea');
+                    input.id = item.key;
+                    input.value = item.value;
+                    div.appendChild(input);
+                } else if (item.type === 'image') {
+                    const preview = document.createElement('img');
+                    preview.src = item.value;
+                    preview.style.height = '100px';
+                    preview.style.display = 'block';
+                    preview.style.marginBottom = '10px';
+                    preview.style.borderRadius = '4px';
+                    div.appendChild(preview);
+                    
+                    const hiddenUrl = document.createElement('input');
+                    hiddenUrl.type = 'hidden';
+                    hiddenUrl.id = item.key;
+                    hiddenUrl.value = item.value;
+                    div.appendChild(hiddenUrl);
+
+                    const fileInput = document.createElement('input');
+                    fileInput.type = 'file';
+                    fileInput.accept = 'image/*';
+                    fileInput.id = item.key + "_file";
+                    div.appendChild(fileInput);
                 } else {
-                    input = document.createElement('input');
+                    const input = document.createElement('input');
                     input.type = 'text';
+                    input.id = item.key;
+                    input.value = item.value;
+                    div.appendChild(input);
                 }
-                input.id = item.key;
-                input.value = item.value;
-                div.appendChild(input);
                 
                 fieldsContainer.appendChild(div);
             });
@@ -230,7 +252,28 @@
             
             try {
                 for (let item of pageContent) {
-                    const newValue = document.getElementById(item.key).value;
+                    let newValue;
+                    if (item.type === 'image') {
+                        const fileInput = document.getElementById(item.key + "_file");
+                        if (fileInput.files.length > 0) {
+                            showAlert(dashboardAlert, 'Uploading image...', 'success');
+                            const formData = new FormData();
+                            formData.append('image', fileInput.files[0]);
+                            const uploadRes = await fetch('/api/upload', {
+                                method: 'POST',
+                                headers: { 'Authorization': 'Bearer ' + token },
+                                body: formData
+                            });
+                            const uploadData = await uploadRes.json();
+                            if(uploadData.error) throw new Error(uploadData.error);
+                            newValue = uploadData.url;
+                        } else {
+                            newValue = document.getElementById(item.key).value;
+                        }
+                    } else {
+                        newValue = document.getElementById(item.key).value;
+                    }
+
                     if (newValue !== item.value) {
                         await fetch('/api/admin/content', {
                             method: 'POST',
@@ -241,8 +284,9 @@
                     }
                 }
                 showAlert(dashboardAlert, `${page.toUpperCase()} content saved!`, 'success');
+                buildFormForPage(page); // refresh to show new images
             } catch (err) {
-                showAlert(dashboardAlert, 'Error saving content.', 'error');
+                showAlert(dashboardAlert, err.message || 'Error saving content.', 'error');
             }
         });
 
