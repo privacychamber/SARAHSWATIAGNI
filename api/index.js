@@ -12,6 +12,63 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// --- Database Init Route ---
+app.get('/api/init', async (req, res) => {
+    try {
+        // Users Table for Admin Auth
+        await db.query(`CREATE TABLE IF NOT EXISTS users (
+            id SERIAL PRIMARY KEY,
+            username TEXT UNIQUE,
+            password TEXT
+        )`);
+
+        const userRes = await db.query("SELECT * FROM users WHERE username = 'admin'");
+        if (userRes.rows.length === 0) {
+            const hashedPassword = await bcrypt.hash('admin123', 10);
+            await db.query("INSERT INTO users (username, password) VALUES ($1, $2)", ['admin', hashedPassword]);
+        }
+
+        await db.query(`CREATE TABLE IF NOT EXISTS content (
+            key TEXT PRIMARY KEY,
+            page TEXT,
+            value TEXT,
+            type TEXT
+        )`);
+
+        await db.query(`CREATE TABLE IF NOT EXISTS services (
+            id SERIAL PRIMARY KEY,
+            title TEXT,
+            description TEXT,
+            icon TEXT,
+            link TEXT
+        )`);
+
+        await db.query(`CREATE TABLE IF NOT EXISTS testimonials (
+            id SERIAL PRIMARY KEY,
+            author TEXT,
+            role TEXT,
+            text TEXT
+        )`);
+
+        const defaultContent = [
+            ['home_hero_subtitle', 'index', 'Sarahswati Agni', 'text'],
+            ['home_hero_title', 'index', 'Transform Your Hair. Heal Your Energy. Ignite Your Spirit.', 'text'],
+            ['home_hero_desc', 'index', 'Professional Dreadlocks Artist, Hypnotherapist, Breathwork Guide & Fire Dance Instructor.', 'textarea'],
+            ['home_intro_subtitle', 'index', 'The Signature Artistry', 'text'],
+            ['home_intro_title', 'index', 'Master Dreadlock Artist & Repair Specialist', 'text'],
+            ['home_intro_lead', 'index', '"Dreadlocks are not just a hairstyle; they are a crown of strength, patience, and identity. Each lock is sculpted with intention, precision, and respect for your hair\'s unique pattern."', 'textarea']
+        ];
+
+        for (const item of defaultContent) {
+            await db.query("INSERT INTO content (key, page, value, type) VALUES ($1, $2, $3, $4) ON CONFLICT DO NOTHING", item);
+        }
+
+        res.json({ success: true, message: "Database initialized successfully!" });
+    } catch (err) {
+        res.status(500).json({ error: err.message, stack: err.stack });
+    }
+});
+
 // --- API Routes for Frontend ---
 
 app.get('/api/content', async (req, res) => {
