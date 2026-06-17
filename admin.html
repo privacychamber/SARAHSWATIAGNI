@@ -6,25 +6,167 @@
     <title>Sarahswati Agni | CMS Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #121212; color: #ffffff; margin: 0; padding: 0; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .header { text-align: center; margin-bottom: 2rem; }
-        .text-gold { color: #b67c3d; }
-        .card { background-color: #1e1e1e; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        :root {
+            --color-bg-dark: #070707;
+            --color-gold: #d4af37;
+            --color-bronze: #b67c3d;
+            --color-cream: #f6f1e9;
+            --glass-bg: rgba(20, 20, 20, 0.4);
+            --glass-border: rgba(182, 124, 61, 0.15);
+            --glass-glow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: radial-gradient(circle at center top, #1a1511 0%, var(--color-bg-dark) 100%);
+            color: var(--color-cream); 
+            margin: 0; 
+            padding: 0; 
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        /* Glassmorphism Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+        
+        .header { text-align: center; margin-bottom: 3rem; position: relative; }
+        .header h1 { font-size: 2.5rem; letter-spacing: 0.1em; font-weight: 300; }
+        .text-gold { color: var(--color-gold); font-weight: 600; }
+        
+        /* Glass Cards */
+        .card { 
+            background: var(--glass-bg); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px); 
+            border: 1px solid var(--glass-border); 
+            border-radius: 16px; 
+            padding: 2.5rem; 
+            margin-bottom: 2rem; 
+            box-shadow: var(--glass-glow);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            border-color: rgba(182, 124, 61, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        h2, h3 { margin-top: 0; color: var(--color-gold); letter-spacing: 0.05em; font-weight: 500; }
+        
         .form-group { margin-bottom: 1.5rem; }
-        label { display: block; margin-bottom: 0.5rem; font-weight: 500; text-transform: capitalize; color: #aaa; }
-        input, textarea { width: 100%; padding: 0.75rem; border: 1px solid #333; border-radius: 4px; background-color: #2a2a2a; color: #fff; font-family: inherit; box-sizing: border-box; }
-        textarea { resize: vertical; min-height: 120px; }
-        .btn { background-color: #b67c3d; color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 4px; cursor: pointer; font-weight: 600; transition: 0.3s; width: 100%; }
-        .btn:hover { background-color: #9c6730; }
-        .btn-page { background-color: #2a2a2a; margin-bottom: 0.5rem; text-align: left; }
-        .btn-page:hover, .btn-page.active { background-color: #b67c3d; }
+        label { display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: #8E8A84; }
+        
+        /* Premium Inputs */
+        input[type="text"], input[type="password"], textarea { 
+            width: 100%; 
+            padding: 1rem; 
+            border: 1px solid rgba(255,255,255,0.05); 
+            border-radius: 8px; 
+            background: rgba(0,0,0,0.3); 
+            color: #fff; 
+            font-family: inherit; 
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+            outline: none;
+            border-color: var(--color-bronze);
+            background: rgba(0,0,0,0.5);
+            box-shadow: 0 0 15px rgba(182, 124, 61, 0.2);
+        }
+        
+        textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+        
+        /* Custom File Input */
+        input[type="file"] {
+            padding: 10px;
+            background: rgba(0,0,0,0.2);
+            border: 1px dashed var(--color-bronze);
+            border-radius: 8px;
+            width: 100%;
+            color: #8E8A84;
+            cursor: pointer;
+        }
+        
+        /* Glowing Buttons */
+        .btn { 
+            background: linear-gradient(135deg, var(--color-bronze) 0%, #875522 100%);
+            color: #fff; 
+            border: 1px solid var(--color-gold); 
+            padding: 1rem 2rem; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: 600; 
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease; 
+            width: 100%; 
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+        
+        .btn:hover { 
+            background: transparent;
+            color: var(--color-gold);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Sidebar Buttons */
+        .btn-page { 
+            background: rgba(0,0,0,0.4); 
+            border: 1px solid transparent;
+            margin-bottom: 0.8rem; 
+            text-align: left; 
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            color: #8E8A84;
+            box-shadow: none;
+        }
+        
+        .btn-page:hover {
+            background: rgba(182, 124, 61, 0.1);
+            color: var(--color-cream);
+            transform: translateX(5px);
+            border-color: rgba(182, 124, 61, 0.3);
+        }
+        
+        .btn-page.active { 
+            background: var(--color-bronze); 
+            color: #000;
+            font-weight: 700;
+            border-color: var(--color-gold);
+        }
+        
         .hidden { display: none !important; }
-        #logoutBtn { float: right; background-color: #d32f2f; width: auto; }
-        #logoutBtn:hover { background-color: #b71c1c; }
-        .alert { padding: 1rem; border-radius: 4px; margin-bottom: 1rem; display: none; }
-        .alert.success { background-color: rgba(76, 175, 80, 0.2); color: #4caf50; border: 1px solid #4caf50; display: block; }
-        .alert.error { background-color: rgba(244, 67, 54, 0.2); color: #f44336; border: 1px solid #f44336; display: block; }
+        
+        #logoutBtn { 
+            float: right; 
+            background: transparent; 
+            border-color: #d32f2f; 
+            color: #d32f2f;
+            width: auto; 
+            padding: 0.5rem 1.5rem;
+        }
+        #logoutBtn:hover { 
+            background: #d32f2f;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(211, 47, 47, 0.4);
+        }
+        
+        /* Alerts */
+        .alert { padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; display: none; font-weight: 500; }
+        .alert.success { background: rgba(76, 175, 80, 0.1); color: #4caf50; border: 1px solid #4caf50; display: block; }
+        .alert.error { background: rgba(244, 67, 54, 0.1); color: #f44336; border: 1px solid #f44336; display: block; }
+        
+        /* Grid System */
+        .dashboard-layout { display: grid; grid-template-columns: 250px 1fr; gap: 3rem; }
+        .modules-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        
+        @media (max-width: 768px) {
+            .dashboard-layout, .modules-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -58,15 +200,15 @@
             
             <div id="dashboardAlert" class="alert"></div>
 
-            <div style="display: flex; gap: 2rem;">
+            <div class="dashboard-layout">
                 <!-- Sidebar -->
-                <div style="flex: 1;">
+                <div>
                     <h3>Pages</h3>
                     <div id="pageSelector"></div>
                 </div>
                 
                 <!-- Editor Area -->
-                <div style="flex: 3;">
+                <div>
                     <div class="card">
                         <h3 id="formTitle">Select a page to edit</h3>
                         <form id="dynamicContentForm">
@@ -77,11 +219,11 @@
                 </div>
             </div>
 
-            <hr style="border-color: #333; margin: 2rem 0;">
+            <hr style="border-color: rgba(182, 124, 61, 0.2); margin: 3rem 0;">
             
             <!-- Additional Modules -->
-            <div style="display: flex; gap: 2rem;">
-                <div class="card" style="flex: 1;">
+            <div class="modules-layout">
+                <div class="card">
                     <h3>Add New Service</h3>
                     <form id="serviceForm">
                         <div class="form-group"><label>Service Title</label><input type="text" id="serviceTitle" required></div>
@@ -92,7 +234,7 @@
                     </form>
                 </div>
 
-                <div class="card" style="flex: 1;">
+                <div class="card">
                     <h3>Add New Testimonial</h3>
                     <form id="testimonialForm">
                         <div class="form-group"><label>Author</label><input type="text" id="testAuthor" required></div>
