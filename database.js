@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const bcrypt = require('bcrypt');
 
-const dbPath = path.resolve(__dirname, 'database.sqlite');
+const dbPath = process.env.DB_PATH || path.resolve(__dirname, 'database.sqlite');
 const db = new sqlite3.Database(dbPath);
 
 const initDb = () => {
@@ -22,11 +22,8 @@ const initDb = () => {
             }
         });
 
-        // Drop the old content table if it exists
-        db.run(`DROP TABLE IF EXISTS content`);
-
         // Content Table for general site copy (CMS)
-        db.run(`CREATE TABLE content (
+        db.run(`CREATE TABLE IF NOT EXISTS content (
             key TEXT PRIMARY KEY,
             page TEXT,
             value TEXT,
@@ -50,7 +47,7 @@ const initDb = () => {
         )`);
 
         // Initialize default content for Index Page
-        const stmt = db.prepare("INSERT INTO content (key, page, value, type) VALUES (?, ?, ?, ?)");
+        const stmt = db.prepare("INSERT OR IGNORE INTO content (key, page, value, type) VALUES (?, ?, ?, ?)");
         
         // Home Page (index)
         stmt.run('home_hero_subtitle', 'index', 'Sarahswati Agni', 'text');
