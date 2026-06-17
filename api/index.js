@@ -1,0 +1,125 @@
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const db = require('./database');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+const app = express();
+const JWT_SECRET = process.env.JWT_SECRET || 'supersecretkey_sarahagni';
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// --- API Routes for Frontend ---
+
+app.get('/api/content', async (req, res) => {
+    try {
+        const result = await db.query("SELECT * FROM content");
+        const content = {};
+        result.rows.forEach(row => {
+            content[row.key] = row.value;
+        });
+        res.json(content);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+app.get('/api/services', async (req, res) => {
+    try {
+        const result = await db.query("SELECT * FROM services");
+        res.json(result.rows);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+app.get('/api/testimonials', async (req, res) => {
+    try {
+        const result = await db.query("SELECT * FROM testimonials");
+        res.json(result.rows);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// --- Admin Authentication ---
+
+app.post('/api/admin/login', async (req, res) => {
+    const { username, password } = req.body;
+    try {
+        const result = await db.query("SELECT * FROM users WHERE username = $1", [username]);
+        const user = result.rows[0];
+        if (!user) return res.status(401).json({ error: "Invalid credentials" });
+
+        const match = await bcrypt.compare(password, user.password);
+        if (match) {
+            const token = jwt.sign({ id: user.id, username: user.username }, JWT_SECRET, { expiresIn: '1h' });
+            res.json({ token });
+        } else {
+            res.status(401).json({ error: "Invalid credentials" });
+        }
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Middleware to protect routes
+const authenticateToken = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    
+    if (token == null) return res.sendStatus(401);
+
+    jwt.verify(token, JWT_SECRET, (err, user) => {
+        if (err) return res.sendStatus(403);
+        req.user = user;
+        next();
+    });
+};
+
+// --- Protected Admin Routes ---
+
+app.get('/api/admin/content', authenticateToken, async (req, res) => {
+    try {
+        const result = await db.query("SELECT * FROM content");
+        res.json(result.rows);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+app.post('/api/admin/content', authenticateToken, async (req, res) => {
+    const { key, value } = req.body;
+    try {
+        await db.query("INSERT INTO content (key, value) VALUES ($1, $2) ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value", [key, value]);
+        res.json({ success: true, key, value });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+app.post('/api/admin/services', authenticateToken, async (req, res) => {
+    const { title, description, icon, link } = req.body;
+    try {
+        const result = await db.query("INSERT INTO services (title, description, icon, link) VALUES ($1, $2, $3, $4) RETURNING id", [title, description, icon, link]);
+        res.json({ success: true, id: result.rows[0].id });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+app.post('/api/admin/testimonials', authenticateToken, async (req, res) => {
+    const { author, role, text } = req.body;
+    try {
+        const result = await db.query("INSERT INTO testimonials (author, role, text) VALUES ($1, $2, $3) RETURNING id", [author, role, text]);
+        res.json({ success: true, id: result.rows[0].id });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Export the app for Vercel Serverless
+module.exports = app;
